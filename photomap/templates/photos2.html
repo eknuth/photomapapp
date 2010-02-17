@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}photos{% endblock %}
+
+
+{% block headincludes %}
+	<link href="/static/uploadify.css" rel="stylesheet" type="text/css">
+	<link href="/static/galleriffic-2.css" rel="stylesheet" type="text/css" />
+	
+	<script type="text/javascript" src="/static/photoview.js"></script>
+	<script type="text/javascript" src="/static/jquery.galleriffic.js"></script>
+	<script type="text/javascript" src="/static/jquery.opacityrollover.js"></script>
+{% endblock %}
+
+{% block footercludes %}
+{% endblock %}
+
+{%block left %}
+<div id="sidebar">
+	<form id="mainftp" action="api/photos" method="POST" enctype="multipart/form-data">
+		<p><input type="file" name="Filedata" id="file" /></p>
+		<p><input type="submit" name="submit" value="Upload" /></p>
+	</form>
+</div>
+{% endblock %}
+
+{% block main %}
+<div id="allfiles" >
+<div id="thumbs" class="navigation">
+	<ul class="thumbs noscript">
+		{% for photo in photos %}
+		<li>
+		<a class="thumb" name="{{ photo.title }}" title="{{ photo.title }}" href="{{ photo.get_display_url }}"><img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/></a>	
+			<div class="caption">
+				<div class="download">
+					<a href="{{ photo.image.url }}">Download Original</a>
+				</div>
+				<div class="image-title">{{ photo.coords }}</div>
+				<div class="image-desc">Test{{ photo.caption }}</div>
+			</div>
+		</li>
+		{% endfor %}
+	</ul>
+</div>
+
+
+</div>{% endblock %}

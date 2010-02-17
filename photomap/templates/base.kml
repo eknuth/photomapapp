@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+  {% for photo in photos %}
+    <Placemark>
+      <name>photomapapp.com:photo</name>
+      <description>
+        <![CDATA[
+          <h1>photomapapp:photo</h1>
+          <p><img src="http://localhost:8000/{{ photo.image.url }}"</p>
+        ]]>
+      </description>
+      <Point>
+        <coordinates>{{ photo.coords }}</coordinates>
+      </Point>
+    </Placemark>
+    {% endfor %}
+  </Document>
+</kml>

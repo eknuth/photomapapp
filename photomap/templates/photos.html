@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>photomapapp.com: photos</title>
+<link href="/example/css/default.css" rel="stylesheet" type="text/css" />
+<link href="/example/css/uploadify.css" rel="stylesheet" type="text/css" />
+<link href="static/style.css" rel="stylesheet" type="text/css" />
+    
+<script type="text/javascript" src="/static/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/static/swfobject.js"></script>
+<script type="text/javascript" src="/static/jquery.uploadify.v2.1.0.min.js"></script>
+<script type="text/javascript" src="/static/photomap.js"></script>
+
+</head> 
+<body>
+<p><strong><img width=250 alt="photomapapp.com" src="/media/photomapapp.png"><span id="loader"></span><strong></p>
+<div id="sidebar">
+	<!-- form to be replaced by uploadify -->
+	<form id="mainftp" action="api/photos" method="POST" enctype="multipart/form-data">
+		<p><input type="file" name="contents" id="file" /></p>
+		<p><input type="submit" name="submit" value="Upload" /></p>
+	</form>
+</div>
+<div id="allfiles" >
+{% for photo in photos %}
+    <a href="{{ photo.image.url }}"><img height=250 src="{{ photo.image.url }}" alt="{{ photo.coords }}"></a>
+{% endfor %}
+</div>
+</body>
+</html>
+
