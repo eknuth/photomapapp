@@ -4,7 +4,7 @@ var toggleState = 1;
 
 function initialize() {
 	if (GBrowserIsCompatible()) {
-		geoXml = new GGeoXml("http://iknuth.com/maps-3.kml");
+		geoXml = new GGeoXml("http://app.photomapapp.com:8000/maps.kml");
 		map = new GMap2(document.getElementById("map_canvas")); 
 		map.setCenter(new GLatLng(45.7,-123.3), 8); 
 

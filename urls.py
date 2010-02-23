@@ -2,6 +2,8 @@ from django.conf.urls.defaults import *
 from photomap import views
 from piston.resource import Resource
 from piston.authentication import HttpBasicAuthentication
+from django.contrib.auth.views import login, logout
+
 
 #import handlers 
 from photomap.handlers import MapHandler, PhotoHandler
@@ -37,7 +39,8 @@ urlpatterns = patterns('',
 				   url(r'^api/photos$', photo_resource),
 				   url(r'^api/map/(?P<id>[^/]+)$', map_resource), 
 				   url(r'^api/maps$', map_resource),
-
+    				   (r'^accounts/login/$',  login),
+    				   (r'^accounts/logout/$', logout),
 
 
     # Example:

@@ -16,8 +16,7 @@ def maps(request):
 
 def kml(request):
 	photos = geoPhoto.objects.order_by('-id')
-	return render_to_response('base.kml', {'photos': photos},
-									mimetype="application/vnd.google-earth.kml+xml")
+	return render_to_response('base.kml', {'photos': photos}, mimetype="application/vnd.google-earth.kml+xml")
 
 def photos(request):
     photos = geoPhoto.objects.order_by('-id')

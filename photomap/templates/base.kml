@@ -6,8 +6,7 @@
       <name>photomapapp.com:photo</name>
       <description>
         <![CDATA[
-          <h1>photomapapp:photo</h1>
-          <p><img src="http://localhost:8000/{{ photo.image.url }}"</p>
+          <p><img src="{{ photo.get_thumbnail_url }}"></p>
         ]]>
       </description>
       <Point>
